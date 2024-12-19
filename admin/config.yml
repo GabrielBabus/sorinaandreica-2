@@ -1,0 +1,1917 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+  branch: master
+media_folder: theme/assets/images
+public_folder: /assets/images
+collections:
+  - name: pages
+    label: Pages
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    folder: cms/pages
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '{{slug}}.html'
+      - &ref_0
+        label: Seo
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - label: Title
+            name: title
+            widget: string
+            required: false
+          - label: Description
+            name: description
+            widget: string
+            required: false
+          - label: No index
+            name: noindex
+            widget: boolean
+            default: false
+            required: false
+          - label: Open Graph Title
+            name: og:title
+            widget: string
+            required: false
+          - label: Open Graph Image
+            name: og:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Twitter Title
+            name: twitter:title
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Card
+            name: twitter:card
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Site
+            name: twitter:site
+            widget: string
+            required: false
+          - label: Twitter Creator
+            name: twitter:creator
+            widget: string
+            required: false
+          - label: Twitter Image
+            name: twitter:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Additional HTML tags
+            name: additional_tags
+            widget: text
+            required: false
+  - name: tv_shows
+    label: TV Shows
+    folder: cms/tv-shows
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: TV Show Description
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_number
+        label: Number
+        widget: number
+        required: false
+      - hint: ''
+        name: f_tv-show-featured-01
+        label: Featured Image 01
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_tv-show-featured-02
+        label: Featured Image 02
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_tv-show-featured-03
+        label: Featured Image 03
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery
+        label: Photo Gallery 01
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-02
+        label: Photo Gallery 02
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-03
+        label: Photo Gallery 03
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-04
+        label: Photo Gallery 04
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-05
+        label: Photo Gallery 05
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-06
+        label: Photo Gallery 06
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-07
+        label: Photo Gallery 07
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-08
+        label: Photo Gallery 08
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-09
+        label: Photo Gallery 09
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-10
+        label: Photo Gallery 10
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: tv-shows
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[tv-shows].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: film_tv_series
+    label: Film & TV Series
+    folder: cms/film-tv-series
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Description
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_number
+        label: Number
+        widget: number
+        required: false
+      - hint: ''
+        name: f_subcategory-featured-image-01
+        label: Featured Image 01
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-featured-image-02
+        label: Featured Image 02
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-featured-image-03
+        label: Featured Image 03
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery
+        label: Photo gallery 01
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-02
+        label: Photo gallery 02
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-03
+        label: Photo gallery 03
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-04
+        label: Photo gallery 04
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-05
+        label: Photo gallery 05
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-06
+        label: Photo gallery 06
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-07
+        label: Photo gallery 07
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-08
+        label: Photo gallery 08
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-09
+        label: Photo gallery 09
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery-10
+        label: Photo gallery 10
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: film-tv-series
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[film-tv-series].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: editorial
+    label: Editorials
+    folder: cms/editorial
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Subcategoy Description
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_number
+        label: Number
+        widget: number
+        required: false
+      - hint: ''
+        name: f_thumbnail
+        label: Thumbnail
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_tv-show-featured-01
+        label: Featured Image 01
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_tv-show-featured-02
+        label: Featured Image 02
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_tv-show-featured-03
+        label: Featured Image 03
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_subcategory-gallery
+        label: Photo Gallery 01
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-02
+        label: Photo Gallery 02
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-03
+        label: Photo Gallery 03
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-04
+        label: Photo Gallery 04
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-05
+        label: Photo Gallery 05
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-06
+        label: Photo Gallery 06
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-07
+        label: Photo Gallery 07
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-08
+        label: Photo Gallery 08
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-09
+        label: Photo Gallery 09
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_photo-gallery-10
+        label: Photo Gallery 10
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: editorial
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[editorial].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: categories
+    label: Categories
+    folder: cms/categories
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_category-thumbnail
+        label: Category Thumbnail
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_description-2
+        label: Category Description
+        widget: string
+        required: false
+      - hint: ''
+        name: f_category-gallery
+        label: Category Gallery 01
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-02
+        label: Category Gallery 02
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-03
+        label: Category Gallery 03
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-04
+        label: Category Gallery 04
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-05
+        label: Category Gallery 05
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-06
+        label: Category Gallery 06
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-07
+        label: Category Gallery 07
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-08
+        label: Category Gallery 08
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-09
+        label: Category Gallery 09
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_category-gallery-10
+        label: Category Gallery 10
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_number-2
+        label: Category Number
+        widget: string
+        required: false
+      - hint: ''
+        name: f_page-has-subcategories
+        label: Page has TV Shows subcategories
+        widget: boolean
+        required: false
+        default: false
+      - hint: ''
+        name: f_page-has-film-tv-series-subcategories
+        label: Page has Film & TV Series subcategories
+        widget: boolean
+        required: false
+        default: false
+      - hint: ''
+        name: f_page-has-editorial-subcategories
+        label: Page has Editorial subcategories
+        widget: boolean
+        required: false
+        default: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: categories
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[categories].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - label: Theme Settings
+    name: settings
+    identifier_field: title
+    extension: json
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    files:
+      - label: General
+        name: site
+        file: cms/_data/settings/site.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: General
+          - hint: Full domain url (needed for a correct sitemap file)
+            name: domain
+            label: Domain
+            widget: string
+            required: false
+          - name: favicon
+            label: Favicon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: apple_touch_icon
+            label: Apple Touch Icon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: header_additional_content
+            label: Additional Content Header
+            hint: Content here will be placed before </head> tag
+            widget: text
+            required: false
+          - name: footer_additional_content
+            label: Additional Content Footer
+            hint: Content here will be placed before </body> tag
+            widget: text
+            required: false
+          - name: images_optimization
+            label: Images Optimization
+            widget: object
+            collapsed: false
+            fields:
+              - label: Image Formats
+                name: formats
+                widget: select
+                multiple: true
+                options:
+                  - label: Avif
+                    value: avif
+                  - label: Webp
+                    value: webp
+              - label: Image Dimensions
+                name: dimensions
+                widget: select
+                multiple: true
+                options:
+                  - label: '500'
+                    value: 500
+                  - label: '800'
+                    value: 800
+                  - label: '1080'
+                    value: 1080
+                  - label: '1600'
+                    value: 1600
+                  - label: '2000'
+                    value: 2000
+                  - label: '2600'
+                    value: 2600
+      - label: Colors
+        name: colors
+        file: cms/_data/colors.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Colors
+      - label: Texts
+        name: texts
+        file: cms/_data/texts.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Texts
+          - hint: 'Original text: Protected Page, key: -11d4bbff'
+            label: Text
+            name: '-11d4bbff'
+            widget: string
+          - hint: >-
+              Original text: Incorrect password. Please try again., key:
+              -f5c4b5f
+            label: Text
+            name: '-f5c4b5f'
+            widget: string
+          - hint: 'Original text: Page Not Found, key: -40b0787c'
+            label: Text
+            name: '-40b0787c'
+            widget: string
+          - hint: >-
+              Original text: The page you are looking for doesn't exist or has
+              been moved, key: 556d64d8
+            label: Text
+            name: 556d64d8
+            widget: string
+          - hint: 'Original text: Go Home, key: 6b29b517'
+            label: Text
+            name: 6b29b517
+            widget: string
+          - hint: 'Original text: Let''s talk!, key: -68391804'
+            label: Text
+            name: '-68391804'
+            widget: string
+          - hint: 'Original text: Portfolio, key: -45b0dad8'
+            label: Text
+            name: '-45b0dad8'
+            widget: string
+          - hint: 'Original text: No items found., key: 3d503d2b'
+            label: Text
+            name: 3d503d2b
+            widget: string
+          - hint: 'Original text: About me, key: 645eff2b'
+            label: Text
+            name: 645eff2b
+            widget: string
+          - hint: 'Original text: Services, key: 560f747e'
+            label: Text
+            name: 560f747e
+            widget: string
+          - hint: 'Original text: Contact, key: -64104400'
+            label: Text
+            name: '-64104400'
+            widget: string
+          - hint: >-
+              Original text: My passion for photography dates back to 1996 when
+              I was still in high school. In 1996 I started studying
+              photography, painting and graphics at the Popular Art School, and
+              in 1998 I began studying at the University of Arts and Design
+              (photo-video section) in Cluj-Napoca, from where I graduated in
+              2003., key: 7983e8d1
+            label: Text
+            name: 7983e8d1
+            widget: text
+          - hint: >-
+              Original text: Between 2000-2006 I worked as a photographer at the
+              local newspapers , key: -4deb25ed
+            label: Text
+            name: '-4deb25ed'
+            widget: string
+          - hint: 'Original text: Clujeanul, key: -774034b5'
+            label: Text
+            name: '-774034b5'
+            widget: string
+          - hint: 'Original text: , , key: 574'
+            label: Text
+            name: '574'
+            widget: string
+          - hint: 'Original text: Ziarul Clujeanului, key: -2b3d4d2a'
+            label: Text
+            name: '-2b3d4d2a'
+            widget: string
+          - hint: >-
+              Original text:  and I also began working at the Mediafax Press
+              Agency. I took part in many various events, ranging from press
+              conferences, sport competitions, reports, to national and
+              international conferences., key: -5f12981d
+            label: Text
+            name: '-5f12981d'
+            widget: text
+          - hint: >-
+              Original text: Between 2006-2010 I worked for the most important
+              glossy magazines at that time, such as: , key: -68982020
+            label: Text
+            name: '-68982020'
+            widget: string
+          - hint: >-
+              Original text: CSID, Maxim, Playboy, TheOne, ProMotor, Descopera,
+              Target, Apropo, Acasa, key: -2c8944b9
+            label: Text
+            name: '-2c8944b9'
+            widget: string
+          - hint: 'Original text: Magazin, Pro TV Magazin, key: -4de6ca15'
+            label: Text
+            name: '-4de6ca15'
+            widget: string
+          - hint: >-
+              Original text: , but also for several business magazines including
+              , key: c5d10bb
+            label: Text
+            name: c5d10bb
+            widget: string
+          - hint: >-
+              Original text: Business Magazin, Money Express, Target, Cariere,
+              key: 150acebf
+            label: Text
+            name: 150acebf
+            widget: string
+          - hint: 'Original text:  and , key: 1f0b149'
+            label: Text
+            name: 1f0b149
+            widget: string
+          - hint: 'Original text: Ziarul Financiar, key: 5e44fde6'
+            label: Text
+            name: 5e44fde6
+            widget: string
+          - hint: >-
+              Original text: . In addition to portraits and studio photo
+              sessions for covers, I also worked for most of their PR events and
+              conferences, some of them comprising hundreds of participants.,
+              key: -61149d99
+            label: Text
+            name: '-61149d99'
+            widget: text
+          - hint: >-
+              Original text: From 2010 to 2021 I worked as a photographer for
+              all the television networks within the ProTv consortium (, key:
+              568c28f4
+            label: Text
+            name: 568c28f4
+            widget: text
+          - hint: >-
+              Original text: Pro TV, Pro TV International, Pro TV Chisinau,
+              Acasa TV, Pro Arena, Pro Cinema, Acasa Gold, MTV Romania, key:
+              67f6bbad
+            label: Text
+            name: 67f6bbad
+            widget: text
+          - hint: >-
+              Original text: ). ProTV is considered to be one of the most
+              important TV stations in Romania, if not the most important one.
+              As the official photographer I was in charge with ensuring the
+              proper photographic work for most of its many shows (, key:
+              -3add7653
+            label: Text
+            name: '-3add7653'
+            widget: text
+          - hint: >-
+              Original text: Vocea Romaniei, Romanii au talent, Masterchef, Vine
+              Cheful, Visuri la cheie, Sef sub acoperire, Sunt celebru scoate ma
+              de aici!, Ce spun romanii, Jocuri de celebritate,
+              Supravietuitorul, Imperiul Leilor, Pe Bune?!, Ferma Vedetelor,
+              key: c9ae12f
+            label: Text
+            name: c9ae12f
+            widget: text
+          - hint: >-
+              Original text: ), and for most of the original series that were
+              produced by the station (, key: 13b392c8
+            label: Text
+            name: 13b392c8
+            widget: string
+          - hint: >-
+              Original text: Serviciul Roman de comedie, Las Fierbinti, O
+              saptamana nebuna, Pariu cu viata, Iubire si onoare, Deschide
+              Ochii, Tanti Florica, Ingeri pierduti, La Bloc, O noua viata,
+              Inima de tigan,, key: -41c7c6eb
+            label: Text
+            name: '-41c7c6eb'
+            widget: text
+          - hint: >-
+              Original text: Lacrimi de iubire, Daria, iubirea mea, Iubire ca-n
+              filme!, key: 679f3278
+            label: Text
+            name: 679f3278
+            widget: string
+          - hint: >-
+              Original text: ). As a result I had numerous photo sessions with
+              all the main stars (the photos were used in magazines or online),
+              I covered all press conferences, launches and events organized by
+              the company (most of these events ranging between 500 and 1000
+              participants)., key: 3071cf9c
+            label: Text
+            name: 3071cf9c
+            widget: text
+          - hint: >-
+              Original text: During this time I continued my work as a freelance
+              photographer collaborating with other companies, taking care of
+              their portfolio and most of their events: , key: -24e41bd6
+            label: Text
+            name: '-24e41bd6'
+            widget: text
+          - hint: 'Original text: Femme boutique medical, key: 6c76c92f'
+            label: Text
+            name: 6c76c92f
+            widget: string
+          - hint: 'Original text:  (gynecological clinic) , , key: b233b47'
+            label: Text
+            name: b233b47
+            widget: string
+          - hint: 'Original text: Talentivity, key: 7a728ad5'
+            label: Text
+            name: 7a728ad5
+            widget: string
+          - hint: >-
+              Original text:  (one of the most complex Romanian talent
+              management platform), , key: -4b4888ef
+            label: Text
+            name: '-4b4888ef'
+            widget: string
+          - hint: 'Original text: Jovsky Studio, key: -16a59bba'
+            label: Text
+            name: '-16a59bba'
+            widget: string
+          - hint: >-
+              Original text:  (one of the most important beauty salons in
+              Bucharest), , key: -62a6b1d0
+            label: Text
+            name: '-62a6b1d0'
+            widget: string
+          - hint: 'Original text: Exotique caffe, key: -4ad6d1e9'
+            label: Text
+            name: '-4ad6d1e9'
+            widget: string
+          - hint: 'Original text: concept, key: 38af7a68'
+            label: Text
+            name: 38af7a68
+            widget: string
+          - hint: 'Original text:  (bistro), , key: -4a89c2f0'
+            label: Text
+            name: '-4a89c2f0'
+            widget: string
+          - hint: 'Original text: Yellow Menu, key: 4125658b'
+            label: Text
+            name: 4125658b
+            widget: string
+          - hint: 'Original text:  (food delivery), , key: -24e961d1'
+            label: Text
+            name: '-24e961d1'
+            widget: string
+          - hint: >-
+              Original text: Anca Alungulesei, Constantin Entertainment, Travel
+              Comunication, Liberty, key: 1e3d604c
+            label: Text
+            name: 1e3d604c
+            widget: string
+          - hint: >-
+              Original text:  (the largest integrated steel producer in
+              Romania), , key: 489e96fc
+            label: Text
+            name: 489e96fc
+            widget: string
+          - hint: 'Original text: NNDKP, key: 46fa6e9'
+            label: Text
+            name: 46fa6e9
+            widget: string
+          - hint: 'Original text:  (one of the largest law firms), , key: -5ce41c80'
+            label: Text
+            name: '-5ce41c80'
+            widget: string
+          - hint: 'Original text: Anaid Art Galery, key: 23b380e8'
+            label: Text
+            name: 23b380e8
+            widget: string
+          - hint: 'Original text: Tipomar, key: 1516ad8a'
+            label: Text
+            name: 1516ad8a
+            widget: string
+          - hint: 'Original text:  (printing and packiging), , key: -a1a80c2'
+            label: Text
+            name: '-a1a80c2'
+            widget: string
+          - hint: 'Original text: Lemet, key: 45e89a3'
+            label: Text
+            name: 45e89a3
+            widget: string
+          - hint: >-
+              Original text:  (one of the largest furniture firms), , key:
+              -5ede3c50
+            label: Text
+            name: '-5ede3c50'
+            widget: string
+          - hint: 'Original text: Artho Sport Clinic, key: 7b6412a'
+            label: Text
+            name: 7b6412a
+            widget: string
+          - hint: 'Original text:  (orthopedic clinic), , key: -1242ce32'
+            label: Text
+            name: '-1242ce32'
+            widget: string
+          - hint: 'Original text: Northo Clinique, key: 2ea74d5c'
+            label: Text
+            name: 2ea74d5c
+            widget: string
+          - hint: 'Original text:  (dental clinic), , key: -407a28b1'
+            label: Text
+            name: '-407a28b1'
+            widget: string
+          - hint: 'Original text: Rare Foods, key: -36c6b529'
+            label: Text
+            name: '-36c6b529'
+            widget: string
+          - hint: 'Original text:  (an important gastronomy service), , key: 583b18ba'
+            label: Text
+            name: 583b18ba
+            widget: string
+          - hint: >-
+              Original text: Fundatia pentru copii Ronald McDonald Romania, key:
+              -7095aab5
+            label: Text
+            name: '-7095aab5'
+            widget: string
+          - hint: 'Original text: Zipper SRL, key: -42f69d7'
+            label: Text
+            name: '-42f69d7'
+            widget: string
+          - hint: 'Original text: FPDL, key: 2106d2'
+            label: Text
+            name: 2106d2
+            widget: string
+          - hint: 'Original text: Medicover, key: -8d09666'
+            label: Text
+            name: '-8d09666'
+            widget: string
+          - hint: 'Original text: Rawcoco, key: -61ff5620'
+            label: Text
+            name: '-61ff5620'
+            widget: string
+          - hint: >-
+              Original text: Compania Zurli, Chez Marie Des Bonbons, Maramura
+              Sweets, Jojoba Media, BP Publishing Media, Ivona Nenu Events,
+              Studio Beauty Center, Comic Enterntainment, Doctor Haos, Eliogil,
+              Clubul Sportiv al Pescarilor de Rapitori, Koop Advertising,
+              Tiririri Music, Lingua Transcript, key: 4600ad1b
+            label: Text
+            name: 4600ad1b
+            widget: text
+          - hint: 'Original text: , and many, many others., key: -173bd8a6'
+            label: Text
+            name: '-173bd8a6'
+            widget: string
+          - hint: >-
+              Original text: One of the most important projects that I was a
+              part of took place back in 2022 when I was the main photographer
+              for the feature film , key: -6efe4f0
+            label: Text
+            name: '-6efe4f0'
+            widget: text
+          - hint: 'Original text: Ramon, key: 4b1465d'
+            label: Text
+            name: 4b1465d
+            widget: string
+          - hint: 'Original text:  (made after the short movie , key: -18298976'
+            label: Text
+            name: '-18298976'
+            widget: string
+          - hint: 'Original text: Romanian Tradition, key: -4f93bab'
+            label: Text
+            name: '-4f93bab'
+            widget: string
+          - hint: >-
+              Original text:  from 2019), and I enjoyed working for 12 hours of
+              filming/day, in many different locations and with a lot of
+              characters. Another important project that I was proudly involved
+              in was another legendary movie, , key: -e810bb5
+            label: Text
+            name: '-e810bb5'
+            widget: text
+          - hint: 'Original text: Morometii 3., key: -2867be82'
+            label: Text
+            name: '-2867be82'
+            widget: string
+          - hint: 'Original text: Most recent interview, key: -75d4cf27'
+            label: Text
+            name: '-75d4cf27'
+            widget: string
+          - hint: 'Original text: Let''s talk, key: -13e0cf3b'
+            label: Text
+            name: '-13e0cf3b'
+            widget: string
+          - hint: 'Original text: Gallery, key: 57850f32'
+            label: Text
+            name: 57850f32
+            widget: string
+          - hint: 'Original text: Let''s get in touch!, key: -3e53026'
+            label: Text
+            name: '-3e53026'
+            widget: string
+          - hint: 'Original text: Name, key: 24eeab'
+            label: Text
+            name: 24eeab
+            widget: string
+          - hint: 'Original text: Email Address, key: -2b7010d0'
+            label: Text
+            name: '-2b7010d0'
+            widget: string
+          - hint: 'Original text: Your message, key: 1d06bd3a'
+            label: Text
+            name: 1d06bd3a
+            widget: string
+          - hint: >-
+              Original text: Thank you! Your submission has been received!, key:
+              5a0ea5a1
+            label: Text
+            name: 5a0ea5a1
+            widget: string
+          - hint: >-
+              Original text: Oops! Something went wrong while submitting the
+              form., key: -7c112e99
+            label: Text
+            name: '-7c112e99'
+            widget: string
+          - hint: 'Original text: Terms & Conditions, key: 4f912d2b'
+            label: Text
+            name: 4f912d2b
+            widget: string
+          - hint: 'Original text: Privacy Policy, key: -3fbde6f6'
+            label: Text
+            name: '-3fbde6f6'
+            widget: string
+          - hint: 'Original text: © sorinaandreica.com, key: 55983e6d'
+            label: Text
+            name: 55983e6d
+            widget: string
+          - hint: 'Original text: Website designed and developed by , key: -11fb7a02'
+            label: Text
+            name: '-11fb7a02'
+            widget: string
+          - hint: 'Original text: Stega Creative, key: -37e0f42f'
+            label: Text
+            name: '-37e0f42f'
+            widget: string
+          - hint: 'Original text: Editorial, key: 91981a7'
+            label: Text
+            name: 91981a7
+            widget: string
+          - hint: >-
+              Original text: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Suspendisse varius enim in eros elementum tristique. Duis
+              cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+              commodo diam libero vitae erat. Aenean faucibus nibh et justo
+              cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus
+              tristique posuere., key: -5286fc08
+            label: Text
+            name: '-5286fc08'
+            widget: text
+          - hint: 'Original text: Film & TV Series, key: -4a26c201'
+            label: Text
+            name: '-4a26c201'
+            widget: string
+          - hint: >-
+              Original text: I have a mobile photo studio and I can supply photo
+              sessions in the studio or at small corporate events. My extensive
+              work experience allows me to accommodate your every need and you
+              will most likely be very satisfied with the photographic results
+              of my work (I do not want to toot my own horn, but I promise to
+              make things look even greater than they do in real life)., key:
+              -e2eb6d1
+            label: Text
+            name: '-e2eb6d1'
+            widget: text
+          - hint: 'Original text: TV Shows, key: 169849d8'
+            label: Text
+            name: 169849d8
+            widget: string
+      - label: Links
+        name: links
+        file: cms/_data/links.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Links
+          - hint: 'Original link: #, key: 23'
+            label: Link
+            name: '23'
+            widget: string
+          - hint: 'Original link: /, key: 2f'
+            label: Link
+            name: 2f
+            widget: string
+          - hint: 'Original link: #contact, key: 6c80469d'
+            label: Link
+            name: 6c80469d
+            widget: string
+          - hint: 'Original link: /about/, key: 61642f31'
+            label: Link
+            name: 61642f31
+            widget: string
+          - hint: 'Original link: /contact/, key: 16bdc13e'
+            label: Link
+            name: 16bdc13e
+            widget: string
+          - hint: >-
+              Original link:
+              https://www.protv.ro/emisiuni/romanii-au-talent/articol/54488-sorina-andreica-fotograf-pro-tv-zfotografia-perfecta-la-romanii-au-talent-nu-exista-toate-trebuie-sa-fie,
+              key: 63782136
+            label: Link
+            name: '63782136'
+            widget: string
+          - hint: >-
+              Original link: https://www.facebook.com/sorinaandreicaphotography,
+              key: -2ea22b6
+            label: Link
+            name: '-2ea22b6'
+            widget: string
+          - hint: >-
+              Original link:
+              https://www.instagram.com/sorinaandreicaphotography/, key:
+              50f3d805
+            label: Link
+            name: 50f3d805
+            widget: string
+          - hint: >-
+              Original link:
+              https://www.linkedin.com/in/sorina-andreica-77a00b42/, key:
+              53a5bbb5
+            label: Link
+            name: 53a5bbb5
+            widget: string
+          - hint: >-
+              Original link: https://www.stegacreative.com/webflow-agency, key:
+              -2dcf1f5b
+            label: Link
+            name: '-2dcf1f5b'
+            widget: string
+      - label: Images
+        name: images
+        file: cms/_data/images.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Images
+          - label: Image
+            name: i6594fc82
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 4abef31c
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-2b1beb3c'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-ce17d52'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-2898d01e'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-34614736'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 317f733b
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '0'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-1c8b5987'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+publish_mode: editorial_workflow
