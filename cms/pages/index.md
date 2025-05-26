@@ -6,7 +6,7 @@ slug: ''
 tags: pages
 seo:
   noindex: false
-  title: Copy of Sorinaandreica.com
+  title: Sorinaandreica.com
 ---
 
 
